@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="视频," />
+  <meta name="keywords" content="Raspberry Pi, Pi," />
 
 
 
@@ -53,16 +53,16 @@
 
 
 
-<meta name="description" content="18:40 - Yes, you’re right! So, why don’t you just get up and do it, for yourself, not for any others!">
+<meta name="description" content="首次打开Raspberry Pi的浏览器访问中文网站的时候，所有的中文字符都会显示为方块，且无法输入中文。解决方法如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yes, you're right">
-<meta property="og:url" content="http://4rthur.me/2014/11/02/Yes-you-re-right/index.html">
+<meta property="og:title" content="Raspberry Pi中文显示盒输入问题解决">
+<meta property="og:url" content="http://4rthur.me/2016/03/31/Raspberry Pi中文显示盒输入问题解决/index.html">
 <meta property="og:site_name" content="终日乾乾">
-<meta property="og:description" content="18:40 - Yes, you’re right! So, why don’t you just get up and do it, for yourself, not for any others!">
-<meta property="og:updated_time" content="2015-11-15T14:32:33.000Z">
+<meta property="og:description" content="首次打开Raspberry Pi的浏览器访问中文网站的时候，所有的中文字符都会显示为方块，且无法输入中文。解决方法如下：">
+<meta property="og:updated_time" content="2016-03-31T04:23:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yes, you're right">
-<meta name="twitter:description" content="18:40 - Yes, you’re right! So, why don’t you just get up and do it, for yourself, not for any others!">
+<meta name="twitter:title" content="Raspberry Pi中文显示盒输入问题解决">
+<meta name="twitter:description" content="首次打开Raspberry Pi的浏览器访问中文网站的时候，所有的中文字符都会显示为方块，且无法输入中文。解决方法如下：">
 
 
 
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title> Yes, you're right | 终日乾乾 </title>
+  <title> Raspberry Pi中文显示盒输入问题解决 | 终日乾乾 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +244,7 @@
             
             
               
-                Yes, you're right
+                Raspberry Pi中文显示盒输入问题解决
               
             
           </h1>
@@ -253,34 +253,19 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-11-02T10:05:40+08:00" content="Nov 2 2014">
-              Nov 2 2014
+            <time itemprop="dateCreated" datetime="2016-03-31T12:22:56+08:00" content="Mar 31 2016">
+              Mar 31 2016
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/见/" itemprop="url" rel="index">
-                    <span itemprop="name">见</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2014/11/02/Yes-you-re-right/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/02/Yes-you-re-right/" itemprop="commentsCount"></span>
+                <a href="/2016/03/31/Raspberry Pi中文显示盒输入问题解决/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Raspberry Pi中文显示盒输入问题解决/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -299,7 +284,16 @@
       
 
       
-        <span itemprop="articleBody"><center><embed src="http://player.youku.com/player.php/sid/XNzI1MTA2NjE2/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></center><br><br><br><center><strong>18:40 - Yes, you’re right! So, why don’t you just get up and do it, for yourself, not for any others!</strong></center></span>
+        <span itemprop="articleBody"><p>首次打开Raspberry Pi的浏览器访问中文网站的时候，所有的中文字符都会显示为方块，且无法输入中文。解决方法如下：<br><a id="more"></a></p>
+<ol>
+<li><p>安装中文字体和输入法：<br> sudo apt-get update<br> sudo apt-get install ttf-wqy-zenhei<br> sudo apt-get install scim-pinyin</p>
+</li>
+<li><p>然后运行下面的命令打开Raspberry Pi的设置，选择Locale为zh_CN.UTF-8<br> sudo raspi-config</p>
+</li>
+<li><p>重启验证显示问题解决，并且能够通过Ctrl+Space切换输入法</p>
+</li>
+</ol>
+</span>
       
     </div>
 
@@ -307,7 +301,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/视频/" rel="tag">#视频</a>
+            <a href="/tags/Raspberry-Pi-Pi/" rel="tag">#Raspberry Pi, Pi</a>
           
         </div>
       
@@ -316,17 +310,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/05/15/Windows下最好的terminal：Console2配置小记/" rel="next" title="Windows下最好的terminal：Console2配置小记">
-                <i class="fa fa-chevron-left"></i> Windows下最好的terminal：Console2配置小记
+              <a href="/2015/11/30/大国重器-1/" rel="next" title="大国重器-1">
+                <i class="fa fa-chevron-left"></i> 大国重器-1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/11/02/Here-s-to-the-crazy-ones/" rel="prev" title="Here's to the crazy ones">
-                Here's to the crazy ones <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -353,8 +343,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2014/11/02/Yes-you-re-right/"
-           data-title="Yes, you're right" data-url="http://4rthur.me/2014/11/02/Yes-you-re-right/">
+      <div class="ds-thread" data-thread-key="2016/03/31/Raspberry Pi中文显示盒输入问题解决/"
+           data-title="Raspberry Pi中文显示盒输入问题解决" data-url="http://4rthur.me/2016/03/31/Raspberry Pi中文显示盒输入问题解决/">
       </div>
     
   </div>
