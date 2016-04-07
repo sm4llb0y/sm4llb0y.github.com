@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="视频," />
+  <meta name="keywords" content="Raspberry Pi, Pi," />
 
 
 
@@ -53,22 +53,16 @@
 
 
 
-<meta name="description" content="中国翁福集团承包沙特的磷矿开采工厂的制造
-首先是装备制造能力的过硬
-自主研发的氟化氢制造技术">
+<meta name="description" content="Google的隔离导致许多引用了Google CDN上包括字体，jsapi以及常用第三方库的网页会一直等待被墙的响应，直至其失败后才继续后面的加载，解决方法如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大国重器-1">
-<meta property="og:url" content="http://4rthur.me/2015/11/30/大国重器-1/index.html">
+<meta property="og:title" content="Google CDN（jsapi, fonts等）被墙问题解决">
+<meta property="og:url" content="http://4rthur.me/2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/index.html">
 <meta property="og:site_name" content="终日乾乾">
-<meta property="og:description" content="中国翁福集团承包沙特的磷矿开采工厂的制造
-首先是装备制造能力的过硬
-自主研发的氟化氢制造技术">
-<meta property="og:updated_time" content="2015-11-30T05:40:30.000Z">
+<meta property="og:description" content="Google的隔离导致许多引用了Google CDN上包括字体，jsapi以及常用第三方库的网页会一直等待被墙的响应，直至其失败后才继续后面的加载，解决方法如下：">
+<meta property="og:updated_time" content="2016-04-07T17:20:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大国重器-1">
-<meta name="twitter:description" content="中国翁福集团承包沙特的磷矿开采工厂的制造
-首先是装备制造能力的过硬
-自主研发的氟化氢制造技术">
+<meta name="twitter:title" content="Google CDN（jsapi, fonts等）被墙问题解决">
+<meta name="twitter:description" content="Google的隔离导致许多引用了Google CDN上包括字体，jsapi以及常用第三方库的网页会一直等待被墙的响应，直至其失败后才继续后面的加载，解决方法如下：">
 
 
 
@@ -80,7 +74,7 @@
   };
 </script>
 
-  <title> 大国重器-1 | 终日乾乾 </title>
+  <title> Google CDN（jsapi, fonts等）被墙问题解决 | 终日乾乾 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +244,7 @@
             
             
               
-                大国重器-1
+                Google CDN（jsapi, fonts等）被墙问题解决
               
             
           </h1>
@@ -259,34 +253,19 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-30T13:30:17+08:00" content="Nov 30 2015">
-              Nov 30 2015
+            <time itemprop="dateCreated" datetime="2016-03-31T12:22:56+08:00" content="Mar 31 2016">
+              Mar 31 2016
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/见/" itemprop="url" rel="index">
-                    <span itemprop="name">见</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/30/大国重器-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/30/大国重器-1/" itemprop="commentsCount"></span>
+                <a href="/2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,37 +284,14 @@
       
 
       
-        <span itemprop="articleBody"><ul>
-<li>中国翁福集团承包沙特的磷矿开采工厂的制造<ul>
-<li>首先是装备制造能力的过硬</li>
-<li>自主研发的氟化氢制造技术<a id="more"></a></li>
-</ul>
+        <span itemprop="articleBody"><p>Google的隔离导致许多引用了Google CDN上包括字体，jsapi以及常用第三方库的网页会一直等待被墙的响应，直至其失败后才继续后面的加载，解决方法如下：<br><a id="more"></a></p>
+<ol>
+<li><p>如果是你自己的网站，这个相对容易考虑直接替换相应的链接为360或者中科大的镜像，或者自己host需要的库文件：<br> googleapis.com 替换为 lug.ustc.edu.cn / useso.com</p>
+<p> 注：360的镜像不支持Https，如果是Https建议使用中科大的镜像</p>
 </li>
-<li>大吨位矿区自卸车的制造<ul>
-<li>湖南湘潭 湘电</li>
-<li>永磁体 手工安装</li>
-</ul>
+<li><p>如果是别人的网站请直接翻墙，如无法翻墙请安装国内网友的插件<a href="https://github.com/justjavac/ReplaceGoogleCDN" target="_blank" rel="external">ReplaceGoogleCDN</a>，如果你有什么特殊需求请直接git clone修改后再安装自己的定制版。</p>
 </li>
-<li>风力发电机的制造<ul>
-<li>两兆瓦</li>
-<li>无兆瓦</li>
-</ul>
-</li>
-<li>旧金山大桥的建造<ul>
-<li>振华集团<ul>
-<li>困难使得一个企业成长</li>
-</ul>
-</li>
-<li>港机，运输</li>
-<li>起重机</li>
-<li>海上钻井平台</li>
-<li>铺管船<ul>
-<li>没有买家提前建造的决策</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</ol>
 </span>
       
     </div>
@@ -344,7 +300,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/视频/" rel="tag">#视频</a>
+            <a href="/tags/Raspberry-Pi-Pi/" rel="tag">#Raspberry Pi, Pi</a>
           
         </div>
       
@@ -353,16 +309,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/30/一片树叶的故事-1/" rel="next" title="一片树叶的故事-1">
-                <i class="fa fa-chevron-left"></i> 一片树叶的故事-1
+              <a href="/2015/11/30/大国重器-1/" rel="next" title="大国重器-1">
+                <i class="fa fa-chevron-left"></i> 大国重器-1
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/" rel="prev" title="Google CDN（jsapi, fonts等）被墙问题解决">
-                Google CDN（jsapi, fonts等）被墙问题解决 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/31/Raspberry Pi中文显示盒输入问题解决/" rel="prev" title="Raspberry Pi中文显示盒输入问题解决">
+                Raspberry Pi中文显示盒输入问题解决 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -390,8 +346,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/30/大国重器-1/"
-           data-title="大国重器-1" data-url="http://4rthur.me/2015/11/30/大国重器-1/">
+      <div class="ds-thread" data-thread-key="2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/"
+           data-title="Google CDN（jsapi, fonts等）被墙问题解决" data-url="http://4rthur.me/2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/">
       </div>
     
   </div>

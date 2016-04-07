@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="视频," />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -53,22 +53,16 @@
 
 
 
-<meta name="description" content="中国翁福集团承包沙特的磷矿开采工厂的制造
-首先是装备制造能力的过硬
-自主研发的氟化氢制造技术">
+<meta name="description" content="Docker的使用过程中经常会出现硬盘空间不足，解决方法如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大国重器-1">
-<meta property="og:url" content="http://4rthur.me/2015/11/30/大国重器-1/index.html">
+<meta property="og:title" content="Docker空间不足问题解决">
+<meta property="og:url" content="http://4rthur.me/2016/04/07/Docker空间不足问题解决/index.html">
 <meta property="og:site_name" content="终日乾乾">
-<meta property="og:description" content="中国翁福集团承包沙特的磷矿开采工厂的制造
-首先是装备制造能力的过硬
-自主研发的氟化氢制造技术">
-<meta property="og:updated_time" content="2015-11-30T05:40:30.000Z">
+<meta property="og:description" content="Docker的使用过程中经常会出现硬盘空间不足，解决方法如下：">
+<meta property="og:updated_time" content="2016-04-07T17:20:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大国重器-1">
-<meta name="twitter:description" content="中国翁福集团承包沙特的磷矿开采工厂的制造
-首先是装备制造能力的过硬
-自主研发的氟化氢制造技术">
+<meta name="twitter:title" content="Docker空间不足问题解决">
+<meta name="twitter:description" content="Docker的使用过程中经常会出现硬盘空间不足，解决方法如下：">
 
 
 
@@ -80,7 +74,7 @@
   };
 </script>
 
-  <title> 大国重器-1 | 终日乾乾 </title>
+  <title> Docker空间不足问题解决 | 终日乾乾 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +244,7 @@
             
             
               
-                大国重器-1
+                Docker空间不足问题解决
               
             
           </h1>
@@ -259,34 +253,19 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-30T13:30:17+08:00" content="Nov 30 2015">
-              Nov 30 2015
+            <time itemprop="dateCreated" datetime="2016-04-07T23:56:56+08:00" content="Apr 7 2016">
+              Apr 7 2016
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/见/" itemprop="url" rel="index">
-                    <span itemprop="name">见</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/30/大国重器-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/30/大国重器-1/" itemprop="commentsCount"></span>
+                <a href="/2016/04/07/Docker空间不足问题解决/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/Docker空间不足问题解决/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,37 +284,19 @@
       
 
       
-        <span itemprop="articleBody"><ul>
-<li>中国翁福集团承包沙特的磷矿开采工厂的制造<ul>
-<li>首先是装备制造能力的过硬</li>
-<li>自主研发的氟化氢制造技术<a id="more"></a></li>
-</ul>
+        <span itemprop="articleBody"><p>Docker的使用过程中经常会出现硬盘空间不足，解决方法如下：<br><a id="more"></a></p>
+<ol>
+<li><p>删除已经退出或终止的Docker镜像：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -v $(docker ps -a -q -f status=exited)</span><br></pre></td></tr></table></figure>
 </li>
-<li>大吨位矿区自卸车的制造<ul>
-<li>湖南湘潭 湘电</li>
-<li>永磁体 手工安装</li>
-</ul>
+<li><p>删除运行过程中缓存到本地的Docker镜像：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -f &#34;dangling=true&#34; -q)</span><br></pre></td></tr></table></figure>
 </li>
-<li>风力发电机的制造<ul>
-<li>两兆瓦</li>
-<li>无兆瓦</li>
-</ul>
+<li><p>删除Volume占据的空间：<br>3.1 在1.9之后可以使用下面的命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume rm $(docker volume ls -qf dangling=true)</span><br></pre></td></tr></table></figure>
 </li>
-<li>旧金山大桥的建造<ul>
-<li>振华集团<ul>
-<li>困难使得一个企业成长</li>
-</ul>
-</li>
-<li>港机，运输</li>
-<li>起重机</li>
-<li>海上钻井平台</li>
-<li>铺管船<ul>
-<li>没有买家提前建造的决策</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</ol>
+<p>3.2 在1.9之前可以使用下面的命令（先用dry-run确定没问题再真正删除）：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:var/lib/docker --rm martin/docker-cleanup-volumes --dry-run</span><br></pre></td></tr></table></figure></p>
 </span>
       
     </div>
@@ -344,7 +305,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/视频/" rel="tag">#视频</a>
+            <a href="/tags/Docker/" rel="tag">#Docker</a>
           
         </div>
       
@@ -353,17 +314,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/30/一片树叶的故事-1/" rel="next" title="一片树叶的故事-1">
-                <i class="fa fa-chevron-left"></i> 一片树叶的故事-1
+              <a href="/2016/04/07/通过docker在mesos上部署marathon,chronos/" rel="next" title="通过docker在mesos上部署marathon,chronos">
+                <i class="fa fa-chevron-left"></i> 通过docker在mesos上部署marathon,chronos
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/31/Google CDN（jsapi, fonts等）被墙问题解决/" rel="prev" title="Google CDN（jsapi, fonts等）被墙问题解决">
-                Google CDN（jsapi, fonts等）被墙问题解决 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -390,8 +347,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/30/大国重器-1/"
-           data-title="大国重器-1" data-url="http://4rthur.me/2015/11/30/大国重器-1/">
+      <div class="ds-thread" data-thread-key="2016/04/07/Docker空间不足问题解决/"
+           data-title="Docker空间不足问题解决" data-url="http://4rthur.me/2016/04/07/Docker空间不足问题解决/">
       </div>
     
   </div>
