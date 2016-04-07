@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="视频," />
+  <meta name="keywords" content="Docker, Mesos, Zookeeper, Marathon, Chronos," />
 
 
 
@@ -53,16 +53,22 @@
 
 
 
-<meta name="description">
+<meta name="description" content="首先查看IP：route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;```，通常IP地址应该是172.17.42.112. &amp;#36816;&amp;#34892;Zookeeper
+
+docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#36816;&amp;#3489">
 <meta property="og:type" content="article">
-<meta property="og:title" content="秦始皇：中国缔造者的传奇">
-<meta property="og:url" content="http://4rthur.me/2014/11/02/秦始皇：中国缔造者的传奇/index.html">
+<meta property="og:title" content="通过docker在mesos上部署marathon,chronos">
+<meta property="og:url" content="http://4rthur.me/2016/04/07/通过docker在mesos上部署marathon,chronos/index.html">
 <meta property="og:site_name" content="终日乾乾">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-11-30T05:28:17.000Z">
+<meta property="og:description" content="首先查看IP：route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;```，通常IP地址应该是172.17.42.112. &amp;#36816;&amp;#34892;Zookeeper
+
+docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#36816;&amp;#3489">
+<meta property="og:updated_time" content="2016-04-07T04:02:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="秦始皇：中国缔造者的传奇">
-<meta name="twitter:description">
+<meta name="twitter:title" content="通过docker在mesos上部署marathon,chronos">
+<meta name="twitter:description" content="首先查看IP：route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;```，通常IP地址应该是172.17.42.112. &amp;#36816;&amp;#34892;Zookeeper
+
+docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#36816;&amp;#3489">
 
 
 
@@ -74,7 +80,7 @@
   };
 </script>
 
-  <title> 秦始皇：中国缔造者的传奇 | 终日乾乾 </title>
+  <title> 通过docker在mesos上部署marathon,chronos | 终日乾乾 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +250,7 @@
             
             
               
-                秦始皇：中国缔造者的传奇
+                通过docker在mesos上部署marathon,chronos
               
             
           </h1>
@@ -253,34 +259,19 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2014-11-02T10:21:40+08:00" content="Nov 2 2014">
-              Nov 2 2014
+            <time itemprop="dateCreated" datetime="2016-04-07T11:58:31+08:00" content="Apr 7 2016">
+              Apr 7 2016
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/见/" itemprop="url" rel="index">
-                    <span itemprop="name">见</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2014/11/02/秦始皇：中国缔造者的传奇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/02/秦始皇：中国缔造者的传奇/" itemprop="commentsCount"></span>
+                <a href="/2016/04/07/通过docker在mesos上部署marathon,chronos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/通过docker在mesos上部署marathon,chronos/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -299,7 +290,14 @@
       
 
       
-        <span itemprop="articleBody"><center><embed src="http://player.youku.com/player.php/sid/XNTEwOTk3OTE2/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></center><br><a id="more"></a><br><br><br><center><strong>中国的总设计师</strong></center>
+        <span itemprop="articleBody"><ol>
+<li>首先查看IP：<figure class="highlight"><figcaption><span>route | grep docker | awk '&#123; print $NF &#125;'```，通常IP地址应该是172.17.42.1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. &#36816;&#34892;Zookeeper</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. &#36816;&#34892;Mesos Master</span><br></pre></td></tr></table></figure></p>
+<p>docker run -d -e MESOS_LOG_DIR=/var/log \<br> -e MESOS_WORK_DIR=/var/log \<br> -e MESOS_ZK=zk://172.17.42.1:2181/mesos \<br> -e MESOS_HOSTNAME=172.17.42.1 \<br> -e MESOS_QUORUM=1 \<br> -p 5050:5050 \<br> redjack/mesos-master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. &#36816;&#34892;Mesos Slave</span><br></pre></td></tr></table></figure></p>
+<p>docker run -d \<br> -e MESOS_LOG_DIR=/var/log \<br> -e MESOS_MASTER=zk://172.17.42.1:2181/mesos \<br> -e MESOS_HOSTNAME=172.17.42.1 \<br> -p 5051:5051 \<br> -p 31800:31800 \<br> redjack/mesos-slave<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. &#36816;&#34892;Marathon</span><br></pre></td></tr></table></figure></p>
+<p>docker run -p 8088:8088 -d -t mesosphere/marathon –master local –zk zk://172.17.42.1:2181/mesos –http_port 8088<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6. &#36816;&#34892;Chronos</span><br></pre></td></tr></table></figure></p>
+<p>docker run -d -p 4400:8080 tomaskral/chronos –master zk://172.17.42.1:2181/mesos –zk_hosts zk://172.17.42.1:2181<br>```</p>
 </span>
       
     </div>
@@ -308,7 +306,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/视频/" rel="tag">#视频</a>
+            <a href="/tags/Docker-Mesos-Zookeeper-Marathon-Chronos/" rel="tag">#Docker, Mesos, Zookeeper, Marathon, Chronos</a>
           
         </div>
       
@@ -317,17 +315,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/11/02/Here-s-to-the-crazy-ones/" rel="next" title="Here's to the crazy ones">
-                <i class="fa fa-chevron-left"></i> Here's to the crazy ones
+              <a href="/2016/03/31/Raspberry Pi中文显示盒输入问题解决/" rel="next" title="Raspberry Pi中文显示盒输入问题解决">
+                <i class="fa fa-chevron-left"></i> Raspberry Pi中文显示盒输入问题解决
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/30/一片树叶的故事-1/" rel="prev" title="一片树叶的故事-1">
-                一片树叶的故事-1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -354,8 +348,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2014/11/02/秦始皇：中国缔造者的传奇/"
-           data-title="秦始皇：中国缔造者的传奇" data-url="http://4rthur.me/2014/11/02/秦始皇：中国缔造者的传奇/">
+      <div class="ds-thread" data-thread-key="2016/04/07/通过docker在mesos上部署marathon,chronos/"
+           data-title="通过docker在mesos上部署marathon,chronos" data-url="http://4rthur.me/2016/04/07/通过docker在mesos上部署marathon,chronos/">
       </div>
     
   </div>
