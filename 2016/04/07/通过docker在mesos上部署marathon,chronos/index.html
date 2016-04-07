@@ -53,22 +53,37 @@
 
 
 
-<meta name="description" content="首先查看IP：route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;```，通常IP地址应该是172.17.42.112. &amp;#36816;&amp;#34892;Zookeeper
+<meta name="description" content="首先查看IP，通常IP地址应该是172.17.42.1
+1ip route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;
 
-docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#36816;&amp;#3489">
+运行Zookeeper
+1docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper
+
+运行Mesos Master
+1234567docker ru">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过docker在mesos上部署marathon,chronos">
 <meta property="og:url" content="http://4rthur.me/2016/04/07/通过docker在mesos上部署marathon,chronos/index.html">
 <meta property="og:site_name" content="终日乾乾">
-<meta property="og:description" content="首先查看IP：route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;```，通常IP地址应该是172.17.42.112. &amp;#36816;&amp;#34892;Zookeeper
+<meta property="og:description" content="首先查看IP，通常IP地址应该是172.17.42.1
+1ip route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;
 
-docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#36816;&amp;#3489">
-<meta property="og:updated_time" content="2016-04-07T04:02:56.000Z">
+运行Zookeeper
+1docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper
+
+运行Mesos Master
+1234567docker ru">
+<meta property="og:updated_time" content="2016-04-07T04:54:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过docker在mesos上部署marathon,chronos">
-<meta name="twitter:description" content="首先查看IP：route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;```，通常IP地址应该是172.17.42.112. &amp;#36816;&amp;#34892;Zookeeper
+<meta name="twitter:description" content="首先查看IP，通常IP地址应该是172.17.42.1
+1ip route | grep docker | awk &apos;&amp;#123; print $NF &amp;#125;&apos;
 
-docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#36816;&amp;#3489">
+运行Zookeeper
+1docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper
+
+运行Mesos Master
+1234567docker ru">
 
 
 
@@ -291,13 +306,24 @@ docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper13. &amp;#3
 
       
         <span itemprop="articleBody"><ol>
-<li>首先查看IP：<figure class="highlight"><figcaption><span>route | grep docker | awk '&#123; print $NF &#125;'```，通常IP地址应该是172.17.42.1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. &#36816;&#34892;Zookeeper</span><br></pre></td></tr></table></figure></li>
+<li><p>首先查看IP，通常IP地址应该是172.17.42.1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route | grep docker | awk <span class="string">'&#123; print $NF &#125;'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行Zookeeper</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="operator">-d</span> -p <span class="number">2181</span>:<span class="number">2181</span> -p <span class="number">2888</span>:<span class="number">2888</span> -p <span class="number">3888</span>:<span class="number">3888</span> jplock/zookeeper</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行Mesos Master</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="operator">-d</span> <span class="operator">-e</span> MESOS_LOG_DIR=/var/<span class="built_in">log</span> \</span><br><span class="line"> <span class="operator">-e</span> MESOS_WORK_DIR=/var/<span class="built_in">log</span> \</span><br><span class="line"> <span class="operator">-e</span> MESOS_ZK=zk://<span class="number">172.17</span>.<span class="number">42.1</span>:<span class="number">2181</span>/mesos \</span><br><span class="line"> <span class="operator">-e</span> MESOS_HOSTNAME=<span class="number">172.17</span>.<span class="number">42.1</span> \</span><br><span class="line"> <span class="operator">-e</span> MESOS_QUORUM=<span class="number">1</span> \</span><br><span class="line"> -p <span class="number">5050</span>:<span class="number">5050</span> \</span><br><span class="line"> redjack/mesos-master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行Mesos Slave</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="operator">-d</span> \</span><br><span class="line"> <span class="operator">-e</span> MESOS_LOG_DIR=/var/<span class="built_in">log</span> \</span><br><span class="line"> <span class="operator">-e</span> MESOS_MASTER=zk://<span class="number">172.17</span>.<span class="number">42.1</span>:<span class="number">2181</span>/mesos \</span><br><span class="line"> <span class="operator">-e</span> MESOS_HOSTNAME=<span class="number">172.17</span>.<span class="number">42.1</span> \</span><br><span class="line"> -p <span class="number">5051</span>:<span class="number">5051</span> \</span><br><span class="line"> -p <span class="number">31800</span>:<span class="number">31800</span> \</span><br><span class="line"> redjack/mesos-slave</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行Marathon</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p <span class="number">8088</span>:<span class="number">8088</span> <span class="operator">-d</span> -t mesosphere/marathon --master <span class="built_in">local</span> --zk zk://<span class="number">172.17</span>.<span class="number">42.1</span>:<span class="number">2181</span>/mesos --http_port <span class="number">8088</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行Chronos</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="operator">-d</span> -p <span class="number">4400</span>:<span class="number">8080</span> tomaskral/chronos --master zk://<span class="number">172.17</span>.<span class="number">42.1</span>:<span class="number">2181</span>/mesos --zk_hosts zk://<span class="number">172.17</span>.<span class="number">42.1</span>:<span class="number">2181</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 jplock/zookeeper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. &#36816;&#34892;Mesos Master</span><br></pre></td></tr></table></figure></p>
-<p>docker run -d -e MESOS_LOG_DIR=/var/log \<br> -e MESOS_WORK_DIR=/var/log \<br> -e MESOS_ZK=zk://172.17.42.1:2181/mesos \<br> -e MESOS_HOSTNAME=172.17.42.1 \<br> -e MESOS_QUORUM=1 \<br> -p 5050:5050 \<br> redjack/mesos-master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. &#36816;&#34892;Mesos Slave</span><br></pre></td></tr></table></figure></p>
-<p>docker run -d \<br> -e MESOS_LOG_DIR=/var/log \<br> -e MESOS_MASTER=zk://172.17.42.1:2181/mesos \<br> -e MESOS_HOSTNAME=172.17.42.1 \<br> -p 5051:5051 \<br> -p 31800:31800 \<br> redjack/mesos-slave<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. &#36816;&#34892;Marathon</span><br></pre></td></tr></table></figure></p>
-<p>docker run -p 8088:8088 -d -t mesosphere/marathon –master local –zk zk://172.17.42.1:2181/mesos –http_port 8088<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6. &#36816;&#34892;Chronos</span><br></pre></td></tr></table></figure></p>
-<p>docker run -d -p 4400:8080 tomaskral/chronos –master zk://172.17.42.1:2181/mesos –zk_hosts zk://172.17.42.1:2181<br>```</p>
 </span>
       
     </div>
