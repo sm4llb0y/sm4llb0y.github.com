@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>自述 | 终日乾乾</title>
+  <title>PID Control | 终日乾乾</title>
   <meta name="author" content="4rthur lee">
   
   <meta name="description" content="九三，君子终日乾乾，夕惕若厉，无咎">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="自述"/>
+  <meta property="og:title" content="PID Control"/>
   <meta property="og:site_name" content="终日乾乾"/>
 
   
@@ -54,26 +54,53 @@
       
     </div>
     <div class="content">
-<article class="page">
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
       
+        <time datetime="2018-01-12T09:31:21.000Z">Jan 12 2018</time>
+      
       
   
-    <h1 class="title">自述</h1>
+    <h1 class="title">PID Control</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>They’re just people, I’m people too.</p>
+        <p>所谓PID控制器就是将控制系统的输出误差作为输入不断的调整纠正系统偏差的控制机制。</p>
+<p><img src="/2018/01/12/PID-Control/intro.png" alt="PID控制器"></p>
+<p>PID控制器由三部分组成：Proportional，Integral和Derivative，其中Proportional指的是最后输出与目标值之间的差值瞬时值，Integral指的是差值的不断累积值，而Derivative指的是最后输出的变化速度也就是导数。</p>
+<p><img src="/2018/01/12/PID-Control/plot.png" alt="详细图示"></p>
+<p>最后PID控制器的输出就是三者的叠加，当然为了实现的方便和简单你也可以任取三者的子集作为输出。</p>
+<p><img src="/2018/01/12/PID-Control/composition.png" alt="PID控制器"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=UR0hOmjaHp0&amp;feature=youtu.be" target="_blank" rel="noopener">PID Control: Brief Introduction</a></li>
+</ul>
 
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/AI/">AI</a>, <a href="/categories/AI/Robot/">Robot</a>
+  </div>
+
         
         
       
@@ -110,9 +137,9 @@
     <script type="text/javascript">
     var disqus_shortname = 'sm4llb0y';
     var disqus_config = function () {
-        this.page.url = 'http://guoqiang.li/about/index.html';
-        this.page.identifier = '/about/index.html';
-        this.page.title = '自述';
+        this.page.url = 'http://guoqiang.li/2018/01/12/PID-Control/';
+        this.page.identifier = '/2018/01/12/PID-Control/';
+        this.page.title = 'PID Control';
     };
     (function(){
       var d = document;
