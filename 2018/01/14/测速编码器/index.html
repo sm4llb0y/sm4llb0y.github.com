@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>测速编码器 | 终日乾乾</title>
+  <meta name="author" content="4rthur lee">
+  
+  <meta name="description" content="九三，君子终日乾乾，夕惕若厉，无咎">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="测速编码器"/>
+  <meta property="og:site_name" content="终日乾乾"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="终日乾乾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner">
+    <a href="/" class="logo">
+  <img src="/image/scribble.png" title="终日乾乾"/>
+</a>
+<h1>终日乾乾</h1>
+<h2>君子终日乾乾，夕惕若厉，无咎</h2>
+
+  </header>
+  <div id="container" class="inner">
+    <div class="block">
+      
+      <a href="/">始</a>
+      
+      <a href="/categories/见/index.html">见</a>
+      
+      <a href="/categories/闻/index.html">闻</a>
+      
+      <a href="/categories/阅/index.html">阅</a>
+      
+      <a href="/about/index.html">格</a>
+      
+      <a href="/model/index.html">楷</a>
+      
+    </div>
+    <div class="content">
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2018-01-13T17:12:23.000Z">Jan 14 2018</time>
+      
+      
+  
+    <h1 class="title">测速编码器</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>编码器(Encoder)是将一种信息转换为另外一种可以进行传输、通信或者可以采用计算机进行处理的设备。编码器分很多中，本文关注旋转编码器(Rotary Encoder)是用来测量马达旋转速度和角度的装置。</p>
+<p>旋转编码器可以分为单相，两相和三相三种，其中AB两相编码器比较常见，它可以做到正反向检测，计数和测速。</p>
+<p>其原理比较简单就是旋转的时候A，B产生两路脉冲，不过两路脉冲错开1/4周期，这样根据AB两相检测到的高低脉冲值就可以判断方向和旋转速度。</p>
+<p>其基本的计算方法：首先知道编码器转一圈产生r个脉冲，然后得知电机的减速比是s（减速比顾名思义就是为了减速，为了加大电机的扭矩也就是能够输出更大的力量，需要在电机转轴上安装小齿轮带动外面的大齿轮，可以电机转轴旋转s圈外面才输出一圈），所以单位时间t内产生了n个脉冲的话转速等于<script type="math/tex">\frac{n}{srt}</script>。</p>
+<p>贴一段别人的示例代码，代码的基本意思是AM1与BM1就是两相的输入引脚，通过最后两者的脉冲数之和除以<code>脉冲数*减速比*时间毫秒数/1000</code>获得每秒的转速单位应该是round per second，代码中的rad/s应该是写错了，如果是角速度应该需要再乘以2Pi。另外代码没有判断正转或者反转的逻辑，具体可以参考本文后arduino官网的说明页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 日期: 2017/02/28</span><br><span class="line"> * 作者: 呆萌阿宝</span><br><span class="line"> * 描述: 电机测速</span><br><span class="line"> */</span><br><span class="line">const int d_time=100;//设定单位时间</span><br><span class="line">int flagA=0;</span><br><span class="line">int flagB=0;//标志位设定</span><br><span class="line">int AM1=2;</span><br><span class="line">int BM1=3;//A相B相输入引脚的定义</span><br><span class="line">int AIN1=7;</span><br><span class="line">int AIN2=8;</span><br><span class="line">int PWMA=9;//AIN1、2和PWMA是电机输出引脚的定义</span><br><span class="line">int valA=0;</span><br><span class="line">int valB=0;//用来储存A相B相记录的脉冲数</span><br><span class="line">double n;//存储转速的变量</span><br><span class="line">unsigned long times;</span><br><span class="line">unsigned long newtime;//时间变量</span><br><span class="line">void go(int g);</span><br><span class="line">void back(int b);</span><br><span class="line">void stay();//电机子函数申明</span><br><span class="line">void setup() </span><br><span class="line">&#123;</span><br><span class="line">   Serial.begin(9600);//串口初始化</span><br><span class="line">   pinMode(AIN1,OUTPUT);</span><br><span class="line">   pinMode(AIN2,OUTPUT);</span><br><span class="line">   pinMode(PWMA,OUTPUT);//AIN1、2和PWMA引脚的输出方式</span><br><span class="line">   pinMode(AM1,INPUT);</span><br><span class="line">   pinMode(BM1,INPUT);//AM1、BM2引脚的输入方式</span><br><span class="line">&#125;</span><br><span class="line">void loop() </span><br><span class="line">&#123;</span><br><span class="line">   go(255);//调用go（）子函数</span><br><span class="line">   newtime=times=millis();</span><br><span class="line">   while((newtime-times)&lt;d_time)</span><br><span class="line">   &#123;</span><br><span class="line">      if(digitalRead(AM1)==HIGH &amp;&amp; flagA==0)</span><br><span class="line">      &#123;</span><br><span class="line">        valA++;</span><br><span class="line">        flagA=1;</span><br><span class="line">        &#125;</span><br><span class="line">      if(digitalRead(AM1)==LOW &amp;&amp; flagA==1)</span><br><span class="line">      &#123;</span><br><span class="line">        valA++;</span><br><span class="line">        flagA=0;</span><br><span class="line">        &#125;</span><br><span class="line">        if(digitalRead(BM1)==HIGH &amp;&amp; flagB==0)</span><br><span class="line">      &#123;</span><br><span class="line">        valB++;</span><br><span class="line">        flagB=1;</span><br><span class="line">        &#125;</span><br><span class="line">      if(digitalRead(BM1)==LOW &amp;&amp; flagB==1)</span><br><span class="line">      &#123;</span><br><span class="line">        valB++;</span><br><span class="line">        flagB=0;</span><br><span class="line">        &#125;</span><br><span class="line">        newtime=millis();</span><br><span class="line">    &#125;//计算AB两相的脉冲数</span><br><span class="line">    n=(valA+valB)/(1.496*d_time);//计算转速</span><br><span class="line">    Serial.print(n);</span><br><span class="line">    Serial.println(&quot;rad/s&quot;);//输出转速数值</span><br><span class="line">    valA=valB=0;//清零储存脉冲数的变量</span><br><span class="line">&#125;</span><br><span class="line">/***********************************子函数程序**********************************/</span><br><span class="line">void go(int a)</span><br><span class="line">&#123;</span><br><span class="line">   digitalWrite(AIN1,HIGH);</span><br><span class="line">   digitalWrite(AIN2,LOW);</span><br><span class="line">   analogWrite(PWMA,a);</span><br><span class="line"> &#125;</span><br><span class="line">void back(int b)</span><br><span class="line">&#123;</span><br><span class="line">   digitalWrite(AIN1,LOW);</span><br><span class="line">   digitalWrite(AIN2,HIGH);</span><br><span class="line">   analogWrite(PWMA,b);</span><br><span class="line"> &#125;</span><br><span class="line">void stay()</span><br><span class="line">&#123;</span><br><span class="line">   digitalWrite(AIN1,HIGH);</span><br><span class="line">   digitalWrite(AIN2,HIGH);     </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.arduino.cn/thread-42559-1-1.html" target="_blank" rel="noopener">http://www.arduino.cn/thread-42559-1-1.html</a></li>
+<li><a href="https://playground.arduino.cc/Main/RotaryEncoders" target="_blank" rel="noopener">https://playground.arduino.cc/Main/RotaryEncoders</a></li>
+<li><a href="https://playground.arduino.cc/Code/PIDLibaryBasicExample" target="_blank" rel="noopener">https://playground.arduino.cc/Code/PIDLibaryBasicExample</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/AI/">AI</a>, <a href="/categories/AI/Robot/">Robot</a>
+  </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div>
+  </div>
+  <footer id="footer" class="inner">
+    <a href="https://www.hexo.io" class="muted">Hexo</a> <span style="color: #8f8f8f">&amp;&amp;</span> <a href="https://github.com/Irvvin/hexo-theme-scribble" class="muted">Scribble</a>
+<br>
+<br>
+<img src="/image/scribble2.png" alt="scribble">
+
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'sm4llb0y';
+    var disqus_config = function () {
+        this.page.url = 'http://guoqiang.li/2018/01/14/测速编码器/';
+        this.page.identifier = '/2018/01/14/测速编码器/';
+        this.page.title = '测速编码器';
+    };
+    (function(){
+      var d = document;
+      var dsq = d.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (d.head || d.body).appendChild(dsq);
+    })();
+    </script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>
