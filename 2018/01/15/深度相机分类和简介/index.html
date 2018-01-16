@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>深度相机分类和简介 | 终日乾乾</title>
+  <meta name="author" content="4rthur lee">
+  
+  <meta name="description" content="九三，君子终日乾乾，夕惕若厉，无咎">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="深度相机分类和简介"/>
+  <meta property="og:site_name" content="终日乾乾"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="终日乾乾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner">
+    <a href="/" class="logo">
+  <img src="/image/scribble.png" title="终日乾乾"/>
+</a>
+<h1>终日乾乾</h1>
+<h2>君子终日乾乾，夕惕若厉，无咎</h2>
+
+  </header>
+  <div id="container" class="inner">
+    <div class="block">
+      
+      <a href="/">始</a>
+      
+      <a href="/categories/见/index.html">见</a>
+      
+      <a href="/categories/闻/index.html">闻</a>
+      
+      <a href="/categories/阅/index.html">阅</a>
+      
+      <a href="/about/index.html">格</a>
+      
+      <a href="/model/index.html">楷</a>
+      
+    </div>
+    <div class="content">
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2018-01-15T04:28:27.000Z">Jan 15 2018</time>
+      
+      
+  
+    <h1 class="title">深度相机分类和简介</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>深度相机就是指可以测量相机前方物体深度也就是距离的一种相机，实际上某种意义上讲激光雷达也算得上深度相机的一种。</p>
+<a id="more"></a>
+<p>当前深度相机主要分为三类：</p>
+<ol>
+<li>主动投射结构光的深度测量相机</li>
+</ol>
+<p>其基本原理是相机有一个投射结构光的装置（光可以是可见光也可能是非可见光，结构可以是散点，条纹，网格等等）将结构光投射到前方物体，然后有一个成像摄像头会匹配投射到物体上的光纹，并且根据其变化计算出相应的深度。代表产品有微软的Kinect 1以及Intel的RealSense的SR300摄像头，还有Enshape（被Cognex收购，从<a href="https://www.youtube.com/watch?v=hCu1PCGfFXA" target="_blank" rel="noopener">视频</a>看猜测是投射结构光+双目视觉），occipital的Structure Sensor。</p>
+<ol>
+<li>被动双目视觉的深度测量相机</li>
+</ol>
+<p>其基本原理是两个平行或者垂直的摄像头同时拍摄前方的照片，然后对这两张照片应用BlockMatch算法计算每个图片block距离相机的远近。代表产品有StereoLabs的Zed camera和PointGrey的Bumblebee2。</p>
+<ol>
+<li>基于反射时间的深度测量相机</li>
+</ol>
+<p>其基本原理是将调制光源投射到前方物体上，然后观察反射光与入射光之间的时间差计算物体到相机的距离，代表产品有微软的Kinect2，PMD的IRS238XC，Softkinetic（已经2015年被索尼收了）的DS325。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/AI/">AI</a>, <a href="/categories/AI/Robot/">Robot</a>
+  </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div>
+  </div>
+  <footer id="footer" class="inner">
+    <a href="https://www.hexo.io" class="muted">Hexo</a> <span style="color: #8f8f8f">&amp;&amp;</span> <a href="https://github.com/Irvvin/hexo-theme-scribble" class="muted">Scribble</a>
+<br>
+<br>
+<img src="/image/scribble2.png" alt="scribble">
+
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'sm4llb0y';
+    var disqus_config = function () {
+        this.page.url = 'http://guoqiang.li/2018/01/15/深度相机分类和简介/';
+        this.page.identifier = '/2018/01/15/深度相机分类和简介/';
+        this.page.title = '深度相机分类和简介';
+    };
+    (function(){
+      var d = document;
+      var dsq = d.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (d.head || d.body).appendChild(dsq);
+    })();
+    </script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>
