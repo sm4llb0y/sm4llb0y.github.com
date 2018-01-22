@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>ROS Notes | 终日乾乾</title>
+  <meta name="author" content="4rthur lee">
+  
+  <meta name="description" content="九三，君子终日乾乾，夕惕若厉，无咎">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ROS Notes"/>
+  <meta property="og:site_name" content="终日乾乾"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="终日乾乾" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner">
+    <a href="/" class="logo">
+  <img src="/image/scribble.png" title="终日乾乾"/>
+</a>
+<h1>终日乾乾</h1>
+<h2>君子终日乾乾，夕惕若厉，无咎</h2>
+
+  </header>
+  <div id="container" class="inner">
+    <div class="block">
+      
+      <a href="/">始</a>
+      
+      <a href="/categories/见/index.html">见</a>
+      
+      <a href="/categories/闻/index.html">闻</a>
+      
+      <a href="/categories/阅/index.html">阅</a>
+      
+      <a href="/about/index.html">格</a>
+      
+      <a href="/model/index.html">楷</a>
+      
+    </div>
+    <div class="content">
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2018-01-18T06:31:12.000Z">Jan 18 2018</time>
+      
+      
+  
+    <h1 class="title">ROS Notes</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>当前ROS新的发行版缺少某些关键的包，所以需要重新安装Ubuntu14.04然后再安装ROS Indigo，安装14.04（太老）后出现内核太老识别不了当前网卡故障：</p>
+<p><a href="https://askubuntu.com/questions/729212/install-intel-ac-8260-wireless-drivers-offline" target="_blank" rel="noopener">https://askubuntu.com/questions/729212/install-intel-ac-8260-wireless-drivers-offline</a></p>
+<h1 id="1-管理并配置环境"><a href="#1-管理并配置环境" class="headerlink" title="1. 管理并配置环境"></a>1. 管理并配置环境</h1><h2 id="确认安装成功"><a href="#确认安装成功" class="headerlink" title="确认安装成功"></a>确认安装成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export | grep ROS</span><br></pre></td></tr></table></figure>
+<h2 id="创建WS"><a href="#创建WS" class="headerlink" title="创建WS"></a>创建WS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/</span><br><span class="line">catkin_make</span><br><span class="line"></span><br><span class="line"># 将当前工作空间设置为最顶层</span><br><span class="line">source devel/setup.bash</span><br><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
+<h1 id="2-文件系统"><a href="#2-文件系统" class="headerlink" title="2. 文件系统"></a>2. 文件系统</h1><h2 id="预备工作-安装ros-tutorials包"><a href="#预备工作-安装ros-tutorials包" class="headerlink" title="预备工作 安装ros-tutorials包"></a>预备工作 安装ros-tutorials包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ros-indigo-ros-tutorials</span><br></pre></td></tr></table></figure>
+<h2 id="文件系统工具"><a href="#文件系统工具" class="headerlink" title="文件系统工具"></a>文件系统工具</h2><ul>
+<li><p>rospack find [包名称] 允许你获取软件包的有关信息。</p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>find rospy```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ ```rospack find roscpp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>roscd [本地包名称[/子目录]] 允许你直接切换工作目录到某个软件包或者软件包集当中</p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>roscpp```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ ```roscd roscpp/cmake</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>log```可以切换到ROS保存日记文件的目录下。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- rosls 直接按软件包的名称而不是绝对路径查看列表</span><br><span class="line">    + ```rosls roscpp_tutorials</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-创建程序包"><a href="#3-创建程序包" class="headerlink" title="3. 创建程序包"></a>3. 创建程序包</h1><h2 id="包的组成"><a href="#包的组成" class="headerlink" title="包的组成"></a>包的组成</h2><ul>
+<li>package.xml文件提供有关程序包的元信息</li>
+<li>CMakeList.txt</li>
+<li>每个目录下只能有一个程序包</li>
+<li>一个工作空间下可以可以有多个包，每个包含有自己的CMakeList.txt</li>
+</ul>
+<h2 id="创建catkin程序包"><a href="#创建catkin程序包" class="headerlink" title="创建catkin程序包"></a>创建catkin程序包</h2><ul>
+<li><p>切换到工作空间<figure class="highlight plain"><figcaption><span>~/catkin_ws/src```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- ```catkin_create_pkg beginner_tutorials std_msgs rospy roscpp</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>第一个参数是包的名字，后面的是包的依赖</li>
+<li>查看包的依赖关系<ul>
+<li><figure class="highlight plain"><figcaption><span>depends1 beginner_tutorials``` 查看一级依赖</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">        * ```rospack depends beginner_tutorials``` 查看简介</span><br><span class="line">    * 创建的包将会出现在WS的src文件夹里边</span><br><span class="line"></span><br><span class="line"># 4. 编译程序包</span><br><span class="line">- catkin_make</span><br><span class="line">    + catkin_make (/catkin/commands/catkin_make) 是一个命令行工具，它简化了catkin的标准工作流程。你可以认为catkin_make (/catkin/commands/catkin_make)是在CMake标准工作流程中依次调用了cmake 和 make</span><br><span class="line">    + ```catkin_make [make_targets] [-DCMAKE_VARIABLES=...]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>编译</p>
+<ul>
+<li><p>在WS根目录运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 然后运行```catkin_make install``` (可选)</span><br><span class="line">+ 指定src位置</span><br><span class="line">    * ```catkin_make --source my_src</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>install --source my_src```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 5. 理解节点</span><br><span class="line">- 图概念概述</span><br><span class="line">    + Nodes (/Nodes):节点,一个节点即为一个可执行文件</span><br><span class="line">        * 一个节点其实只不过是ROS程序包中的一个可执行文件。ROS节点可以使用ROS客户库与其他节点通信。节点可以发布或接收一个话题。节点也可以提供或使用某种服务。</span><br><span class="line">    + Messages (/Messages):消息，消息是一种ROS数据类型，用于订阅或发布到一个话题。</span><br><span class="line">    + Topics (/Topics):话题,节点可以发布消息到话题，也可以订阅话题以接收消息。</span><br><span class="line">    + Master (/Master):节点管理器，ROS名称服务 (比如帮助节点找到彼此)</span><br><span class="line">    + rosout (/rosout): ROS中相当于stdout/stderr。</span><br><span class="line">    + roscore (/roscore): 主机+ rosout + 参数服务器 (参数服务器会在后面介绍)。</span><br><span class="line">- 客户端库</span><br><span class="line">    + rospy = python 客户端库</span><br><span class="line">    + roscpp = c++ 客户端库</span><br><span class="line">- **使用roscore**</span><br><span class="line">    + roscore 是你在运行所有ROS程序前首先要运行的命令。</span><br><span class="line">- **使用rosnode**</span><br><span class="line">    + rosnode 显示当前运行的ROS节点信息。</span><br><span class="line">    + rosnode list 指令列出活跃的节点</span><br><span class="line">    + rosnode info 命令返回的是关于一个特定节点的信息</span><br><span class="line">- **使用rosrun**</span><br><span class="line">    + rosrun 允许你使用包名直接运行一个包内的节点</span><br><span class="line">        * ```rosrun [package_name] [node_name]</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>turtlesim turtlesim_node```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```rosnode list</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>turtlesim turtlesim_node __name:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```rosnode ping my_turtle</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="6-理解话题"><a href="#6-理解话题" class="headerlink" title="6. 理解话题"></a>6. 理解话题</h1><h2 id="运行小乌龟模拟程序"><a href="#运行小乌龟模拟程序" class="headerlink" title="运行小乌龟模拟程序"></a>运行小乌龟模拟程序</h2><ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- ```rosrun turtlesim turtlesim_node</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>turtlesim turtle_teleop_key```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## ROS话题</span><br><span class="line">- turtle_teleop_key在一个话题上发布按键输入消息，而turtlesim则订阅该话题以接收该消息</span><br><span class="line">- 使用rqt_graph</span><br><span class="line">    + 安装</span><br></pre></td></tr></table></figure>
+<pre><code>  $ sudo apt-get install ros-&lt;distro&gt;-rqt 
+  $ sudo apt-get install ros-&lt;distro&gt;-rqt-common-plugins
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 运行</span><br><span class="line">    * ```rosrun rqt_graph rqt_graph</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p>ros话题介绍</p>
+<ul>
+<li>rostopic bw     display bandwidth used by topic </li>
+<li><p>rostopic echo   print messages to screen  可以显示在某个话题上发布的数据。</p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>echo [topic]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```rostopic echo /turtle1/command_velocity</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>echo</span><a href="/turtle1/cmd_vel```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ rostopic hz     display publishing rate of topic  用来查看数据发布的频率</span><br><span class="line">    * ```rostopic hz [topic]</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>hz</span><a href="/turtle1/pose```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ rostopic list   print information about active topics 列出所有当前订阅和发布的话题。</span><br><span class="line">    * ```rostopic list -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>rostopic pub    publish data to topic  可以把数据发布到当前某个正在广播的话题上</p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>pub [topic] [msg_type] [args]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```rostopic pub -1 /turtle1/command_velocity turtlesim/Velocity  -- 2.0  1.8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>双破折号告诉命令选项解析器接下来的参数部分都不是命令选项</p>
+</li>
+</ul>
+</li>
+<li><p>rostopic type   print topic type 用来查看所发布话题的消息类型。</p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>type [topic]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```rostopic type /turtle1/command_velocity</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rosmsg命令来查看消息的详细情况</p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>show turtlesim/Velocity```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 7. 理解服务和参数</span><br><span class="line"></span><br><span class="line">## ROS服务</span><br><span class="line">- 服务（services）是节点之间通讯的另一种方式</span><br><span class="line">- 服务允许节点发送请求（request） 并获得一个响应（response）</span><br><span class="line"></span><br><span class="line">## 使用rosservice</span><br><span class="line">- rosservice list </span><br><span class="line">    + 输出可用服务的信息</span><br><span class="line">- rosservice call     </span><br><span class="line">    + 调用带参数的服务</span><br><span class="line">    + ```rosservice type [service]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><figure class="highlight plain"><figcaption><span>type clear```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- rosservice type</span><br><span class="line">    + 输出服务类型</span><br><span class="line">    + ```rosservice call [service] [args]</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>call clear```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- rosservice find         依据类型寻找服务find services by service type</span><br><span class="line">- rosservice uri          输出服务的ROSRPC uri</span><br><span class="line">- rossrv show</span><br><span class="line">    + 查看服务详细信息</span><br><span class="line"></span><br><span class="line">## 使用rosparam</span><br><span class="line">- 存储并操作ROS 参数服务器（Parameter Server）</span><br><span class="line">- rosparam set            设置参数</span><br><span class="line">    + ```rosparam set background_r 150</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>rosparam get            获取参数 </p>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>get background_g```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    + ```rosparam get /```来显示参数服务器上的所有内容</span><br><span class="line">- rosparam load           从文件读取参数 </span><br><span class="line">    + ```rosparam load [file_name] [namespace]</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>load params.yaml copy``` 将yaml文件重载入新的命名空间</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- rosparam dump           向文件中写入参数 </span><br><span class="line">    + ```rosparam dump [file_name]``` 将所有的参数写入params.yaml文件</span><br><span class="line">    + ```rosparam dump params.yaml</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>rosparam delete         删除参数 </p>
+</li>
+<li>rosparam list           列出参数名</li>
+</ul>
+<h1 id="8-使用rqt-console与roslaunch"><a href="#8-使用rqt-console与roslaunch" class="headerlink" title="8. 使用rqt_console与roslaunch"></a>8. 使用rqt_console与roslaunch</h1><h2 id="使用rqt-console和rqt-logger-level"><a href="#使用rqt-console和rqt-logger-level" class="headerlink" title="使用rqt_console和rqt_logger_level"></a>使用rqt_console和rqt_logger_level</h2><ul>
+<li>rqt_console属于ROS日志框架(logging framework)的一部分，用来显示节点的输出信息。</li>
+<li>rqt_logger_level允许我们修改节点运行时输出信息的日志等级（logger levels）<ul>
+<li>Fatal是最高优先级，Debug是最低优先级</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用roslaunch"><a href="#使用roslaunch" class="headerlink" title="使用roslaunch"></a>使用roslaunch</h2><ul>
+<li>roslaunch可以用来启动定义在launch文件中的多个节点。</li>
+<li><figure class="highlight plain"><figcaption><span>[package] [filename.launch]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 新建launch文件夹</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>roscd beginner_tutorials #这里需要export ROS_PACKAGE_PATH=~/catkin_ws/src:$ROS_PACKAGE_PATH<br>mkdir launch<br>cd launch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 创建turtlemimic.launch文件，</span><br></pre></td></tr></table></figure></p>
+<launch>
+
+  <group ns="turtlesim1">
+    <node pkg="turtlesim" name="sim" type="turtlesim_node">
+  </node></group>
+
+  <group ns="turtlesim2">
+    <node pkg="turtlesim" name="sim" type="turtlesim_node">
+  </node></group>
+
+  <node pkg="turtlesim" name="mimic" type="mimic">
+    <remap from="input" to="turtlesim1/turtle1">
+    <remap from="output" to="turtlesim2/turtle1">
+  </remap></remap></node>
+
+<p>&lt;/launch&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 开始运行</span><br><span class="line">    + ```roslaunch beginner_tutorials turtlemimic.launch</span><br></pre></td></tr></table></figure></p>
+<pre><code>+ 发送消息```rostopic pub /turtlesim1/turtle1/cmd_vel geometry_msgs/Twist -r 1 -- &#39;[2.0,  0.0, 0.0]&#39; &#39;[0.0, 0.0, -1.8]&#39;```
++ 运行rqt_graph观察
+</code></pre></launch>
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div>
+  </div>
+  <footer id="footer" class="inner">
+    <a href="https://www.hexo.io" class="muted">Hexo</a> <span style="color: #8f8f8f">&amp;&amp;</span> <a href="https://github.com/Irvvin/hexo-theme-scribble" class="muted">Scribble</a>
+<br>
+<br>
+<img src="/image/scribble2.png" alt="scribble">
+
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'sm4llb0y';
+    var disqus_config = function () {
+        this.page.url = 'http://guoqiang.li/2018/01/18/ROS-Notes/';
+        this.page.identifier = '/2018/01/18/ROS-Notes/';
+        this.page.title = 'ROS Notes';
+    };
+    (function(){
+      var d = document;
+      var dsq = d.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (d.head || d.body).appendChild(dsq);
+    })();
+    </script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>

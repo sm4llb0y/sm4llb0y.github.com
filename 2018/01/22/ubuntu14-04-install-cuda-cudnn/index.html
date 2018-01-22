@@ -3,7 +3,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Smart China 1 | 终日乾乾</title>
+  <title>ubuntu14.04 install cuda &amp; cudnn | 终日乾乾</title>
   <meta name="author" content="4rthur lee">
   
   <meta name="description" content="九三，君子终日乾乾，夕惕若厉，无咎">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Smart China 1"/>
+  <meta property="og:title" content="ubuntu14.04 install cuda &amp; cudnn"/>
   <meta property="og:site_name" content="终日乾乾"/>
 
   
@@ -69,37 +69,25 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2018-01-16T15:21:56.000Z">Jan 16 2018</time>
+        <time datetime="2018-01-22T03:05:27.000Z">Jan 22 2018</time>
       
       
   
-    <h1 class="title">Smart China 1</h1>
+    <h1 class="title">ubuntu14.04 install cuda &amp; cudnn</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><a href="https://www.bilibili.com/video/av17465593/?from=search&amp;seid=13587144924722367572" target="_blank" rel="noopener">智慧中国1 北京</a></p>
-<ol>
-<li>驭势科技 - 自动驾驶汽车，定位于低成本低速小市场小应用解决方案</li>
-<li>魔拜单车 - 共享自行车，收集廉价数据，GPS定位，二维码识别，蓝牙解锁</li>
-<li>小米 - 推动了中国智能收集的普及，MIUI和手机作为诱饵，往其他电器和IOT领域扩展进一步收集用户数据</li>
-<li>诺亦腾 - 动作捕捉，虚拟现实融合，医用膝盖关节捕捉</li>
-<li>格灵深瞳 - 机器视觉，模仿了人眼的原理先模糊搜索然后聚焦</li>
-<li>京东方 - 从代工到自主迈进，玻璃显示器，柔性屏</li>
-<li>辣妈小厨 - 共享做饭</li>
-</ol>
-
+        <h1 id="1-创建并运行安装脚本"><a href="#1-创建并运行安装脚本" class="headerlink" title="1.创建并运行安装脚本"></a>1.创建并运行安装脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_8.0.61-1_amd64.deb</span><br><span class="line">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1404/x86_64/libcudnn6_6.0.21-1%2Bcuda8.0_amd64.deb</span><br><span class="line">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1404/x86_64/libcudnn6-dev_6.0.21-1%2Bcuda8.0_amd64.deb</span><br><span class="line">sudo dpkg -i cuda-repo-ubuntu1404_8.0.61-1_amd64.deb</span><br><span class="line">sudo dpkg -i libcudnn6_6.0.21-1+cuda8.0_amd64.deb</span><br><span class="line">sudo dpkg -i libcudnn6-dev_6.0.21-1+cuda8.0_amd64.deb</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install cuda=8.0.61-1</span><br><span class="line">sudo apt-get install libcudnn6-dev</span><br></pre></td></tr></table></figure>
+<h1 id="2-重启并安装Nvidia驱动"><a href="#2-重启并安装Nvidia驱动" class="headerlink" title="2.重启并安装Nvidia驱动"></a>2.重启并安装Nvidia驱动</h1><h1 id="3-修改-bashrc"><a href="#3-修改-bashrc" class="headerlink" title="3.修改.bashrc"></a>3.修改.bashrc</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-8.0/bin$&#123;PATH:+:$&#123;PATH&#125;&#125;</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="4-测试安装"><a href="#4-测试安装" class="headerlink" title="4.测试安装"></a>4.测试安装</h1><pre><code>nvidia-smi
+</code></pre>
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/见/">见</a>, <a href="/categories/见/Startup/">Startup</a>, <a href="/categories/见/Startup/创新/">创新</a>, <a href="/categories/见/Startup/创新/创业/">创业</a>
-  </div>
-
         
         
       
@@ -136,9 +124,9 @@
     <script type="text/javascript">
     var disqus_shortname = 'sm4llb0y';
     var disqus_config = function () {
-        this.page.url = 'http://guoqiang.li/2018/01/16/Smart-China-1/';
-        this.page.identifier = '/2018/01/16/Smart-China-1/';
-        this.page.title = 'Smart China 1';
+        this.page.url = 'http://guoqiang.li/2018/01/22/ubuntu14-04-install-cuda-cudnn/';
+        this.page.identifier = '/2018/01/22/ubuntu14-04-install-cuda-cudnn/';
+        this.page.title = 'ubuntu14.04 install cuda &amp; cudnn';
     };
     (function(){
       var d = document;

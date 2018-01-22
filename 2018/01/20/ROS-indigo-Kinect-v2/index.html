@@ -3,7 +3,7 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Smart China 1 | 终日乾乾</title>
+  <title>ROS indigo &amp; Kinect v2 | 终日乾乾</title>
   <meta name="author" content="4rthur lee">
   
   <meta name="description" content="九三，君子终日乾乾，夕惕若厉，无咎">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Smart China 1"/>
+  <meta property="og:title" content="ROS indigo &amp; Kinect v2"/>
   <meta property="og:site_name" content="终日乾乾"/>
 
   
@@ -69,26 +69,35 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2018-01-16T15:21:56.000Z">Jan 16 2018</time>
+        <time datetime="2018-01-20T15:11:58.000Z">Jan 20 2018</time>
       
       
   
-    <h1 class="title">Smart China 1</h1>
+    <h1 class="title">ROS indigo &amp; Kinect v2</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><a href="https://www.bilibili.com/video/av17465593/?from=search&amp;seid=13587144924722367572" target="_blank" rel="noopener">智慧中国1 北京</a></p>
-<ol>
-<li>驭势科技 - 自动驾驶汽车，定位于低成本低速小市场小应用解决方案</li>
-<li>魔拜单车 - 共享自行车，收集廉价数据，GPS定位，二维码识别，蓝牙解锁</li>
-<li>小米 - 推动了中国智能收集的普及，MIUI和手机作为诱饵，往其他电器和IOT领域扩展进一步收集用户数据</li>
-<li>诺亦腾 - 动作捕捉，虚拟现实融合，医用膝盖关节捕捉</li>
-<li>格灵深瞳 - 机器视觉，模仿了人眼的原理先模糊搜索然后聚焦</li>
-<li>京东方 - 从代工到自主迈进，玻璃显示器，柔性屏</li>
-<li>辣妈小厨 - 共享做饭</li>
+        <ol>
+<li>安装Kinect V2驱动：<a href="https://github.com/OpenKinect/libfreenect2" target="_blank" rel="noopener">libfreenect2</a></li>
+<li>安装Kinect V2工具包：<a href="https://github.com/code-iai/iai_kinect2" target="_blank" rel="noopener">iai_kinect2</a></li>
+<li><p>连接相机：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch kinect2_bridge kinect2_bridge.launch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>校准相机：<a href="https://github.com/code-iai/iai_kinect2/tree/master/kinect2_calibration#calibrating-the-kinect-one" target="_blank" rel="noopener">校准Kinect v2</a></p>
+</li>
+<li>将校准文件拷贝到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6. 最后查看点云图```rosrun kinect2_viewer kinect2_viewer kinect2 sd cloud</span><br></pre></td></tr></table></figure></li>
 </ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.tk4479.net/x_r_su/article/details/52911772" target="_blank" rel="noopener">http://www.tk4479.net/x_r_su/article/details/52911772</a></li>
+<li><a href="https://github.com/code-iai/iai_kinect2#install" target="_blank" rel="noopener">https://github.com/code-iai/iai_kinect2#install</a></li>
+<li><a href="https://github.com/OpenKinect/libfreenect2/blob/master/README.md#linux" target="_blank" rel="noopener">https://github.com/OpenKinect/libfreenect2/blob/master/README.md#linux</a></li>
+<li><a href="https://github.com/taochenshh/Kinect-v2-Tutorial" target="_blank" rel="noopener">https://github.com/taochenshh/Kinect-v2-Tutorial</a></li>
+<li><a href="http://www.linuxdiyf.com/linux/25657.html" target="_blank" rel="noopener">http://www.linuxdiyf.com/linux/25657.html</a></li>
+<li><a href="http://blog.csdn.net/zizi7/article/details/53190168" target="_blank" rel="noopener">http://blog.csdn.net/zizi7/article/details/53190168</a></li>
+<li><a href="http://blog.csdn.net/tuilun7729/article/details/77881473" target="_blank" rel="noopener">ROS rviz 显示 kinect v2 点云数据</a></li>
+</ul>
 
       
     </div>
@@ -97,7 +106,7 @@
         
   
   <div class="categories">
-    <a href="/categories/见/">见</a>, <a href="/categories/见/Startup/">Startup</a>, <a href="/categories/见/Startup/创新/">创新</a>, <a href="/categories/见/Startup/创新/创业/">创业</a>
+    <a href="/categories/ROS/">ROS</a>, <a href="/categories/ROS/机器人/">机器人</a>
   </div>
 
         
@@ -136,9 +145,9 @@
     <script type="text/javascript">
     var disqus_shortname = 'sm4llb0y';
     var disqus_config = function () {
-        this.page.url = 'http://guoqiang.li/2018/01/16/Smart-China-1/';
-        this.page.identifier = '/2018/01/16/Smart-China-1/';
-        this.page.title = 'Smart China 1';
+        this.page.url = 'http://guoqiang.li/2018/01/20/ROS-indigo-Kinect-v2/';
+        this.page.identifier = '/2018/01/20/ROS-indigo-Kinect-v2/';
+        this.page.title = 'ROS indigo &amp; Kinect v2';
     };
     (function(){
       var d = document;
